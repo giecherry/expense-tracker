@@ -7,14 +7,26 @@ import Expenses from './pages/Expenses'
 import Income from './pages/Income'
 import Savings from './pages/Savings'
 import Tracker from './pages/Tracker'
+import { useContext } from 'react';
+import { UserContext } from './components/UserContext';
+import { useEffect } from 'react'
+import { Navigate } from 'react-router-dom'
 
 
 function App() {
 
+  useEffect(() => {
+    const user = localStorage.getItem('InUser')
+    if(user){
+      InUser(true)
+    }
+  }, [])
+  const {InUser} = useContext(UserContext)
+
   return (
     <>
     <Routes>
-        <Route path="/" element={ UserIn? <Navigate to="/home" /> : <Navigate to="/login" />} />
+        <Route path="/" element={ InUser? <Navigate to="/home" /> : <Navigate to="/login" />} />
         <Route path="/login" element={<LogIn/>} />
         <Route path="/signup" element={<SignUp/>} />
         <Route path="/home" element={<Home />} />
