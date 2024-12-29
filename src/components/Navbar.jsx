@@ -1,8 +1,7 @@
 import Logo from "../assets/logo.png"
 import LogOutBtn from "../components/LogOutBtn"
-import { Link } from "react-router-dom"
-
-
+import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     return (
@@ -13,11 +12,11 @@ const Navbar = () => {
                                     <img className="rounded-full p-2 m-2 w-1/2" src={Logo} alt="Tumi logo" />
                     </div>
                 </Link>
-                <Link to={"/home"} className="rounded-3xl p-2 px-8 border-transparent hover:bg-light-pink hover:shadow-soft-pink"><h1 >Dashboard</h1></Link>
-                <Link to={"/expenses"} className="rounded-3xl p-2 px-8 border-transparent hover:bg-light-pink hover:shadow-soft-pink"><h1>Expenses</h1></Link>
-                <Link to={"/income"} className="rounded-3xl p-2 px-8 border-transparent hover:bg-light-pink hover:shadow-soft-pink"><h1>Income</h1></Link>
-                <Link to={"/savings"} className="rounded-3xl p-2 px-8 border-transparent hover:bg-light-pink hover:shadow-soft-pink"><h1>Savings</h1></Link>
-                <Link to={"/tracker"} className="rounded-3xl p-2 px-8 border-transparent hover:bg-light-pink hover:shadow-soft-pink"><h1>Payment Tracker</h1></Link>
+                <NavLink to={"/home"} className={({ isActive }) =>`rounded-3xl p-2 px-8 border-transparent ${isActive ? "bg-light-pink shadow-soft-pink" : "hover:bg-light-pink hover:shadow-soft-pink"}`}><h1 >Dashboard</h1></NavLink>
+                <NavLink to={"/expenses"} className={({ isActive }) =>`rounded-3xl p-2 px-8 border-transparent ${isActive ? "bg-light-pink shadow-soft-pink" : "hover:bg-light-pink hover:shadow-soft-pink"}`}><h1>Expenses</h1></NavLink>
+                <NavLink to={"/income"} className={({ isActive }) =>`rounded-3xl p-2 px-8 border-transparent ${isActive ? "bg-light-pink shadow-soft-pink" : "hover:bg-light-pink hover:shadow-soft-pink"}`}><h1>Income</h1></NavLink>
+                <NavLink to={"/savings"} className={({ isActive }) =>`rounded-3xl p-2 px-8 border-transparent ${isActive ? " bg-light-pink shadow-soft-pink" : "hover:bg-light-pink hover:shadow-soft-pink"}`}><h1>Savings</h1></NavLink>
+                <NavLink to={"/tracker"} className={({ isActive }) =>`rounded-3xl p-2 px-8 border-transparent ${isActive ? "bg-light-pink shadow-soft-pink" : "hover:bg-light-pink hover:shadow-soft-pink"}`}><h1>Payment Tracker</h1></NavLink>
                 <LogOutBtn />
             </nav>
             

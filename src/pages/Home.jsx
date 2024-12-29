@@ -3,7 +3,7 @@ import Dashboard from "../components/Dashboard"
 
 const Home = () => {
     return (
-        <div className="w-screen h-screen flex flex-row justify-center items-center bg-neutral-beige  ">
+        <div className="w-screen h-screen flex flex-row justify-center items-center bg-neutral-beige gap-4  ">
             <Navbar />
             <Dashboard/>
         </div>
