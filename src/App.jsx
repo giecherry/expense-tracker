@@ -8,7 +8,7 @@ import Income from './pages/Income'
 import Savings from './pages/Savings'
 import Tracker from './pages/Tracker'
 import { useContext } from 'react';
-import { UserContext } from './components/UserContext';
+import { UserContext } from './context/UserContext';
 import { useEffect } from 'react'
 import { Navigate } from 'react-router-dom'
 

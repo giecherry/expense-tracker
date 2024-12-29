@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import Logo from "../assets/logo.png"
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react';
-import { UserContext } from '../components/UserContext';
+import { UserContext } from '../context/UserContext';
 
 const SignUp = () => { 
     const Navigate = useNavigate();

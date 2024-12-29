@@ -1,7 +1,11 @@
+import Navbar from "../components/Navbar"
+import Dashboard from "../components/Dashboard"
+
 const Home = () => {
     return (
-        <div>
-            <h1>Home</h1>
+        <div className="w-screen h-screen flex flex-row justify-center items-center bg-neutral-beige  ">
+            <Navbar />
+            <Dashboard/>
         </div>
     )
 }
