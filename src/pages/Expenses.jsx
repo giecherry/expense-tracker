@@ -1,15 +1,22 @@
 import Navbar from "../components/Navbar"
 import MonthSelector from "../components/MonthSelector"
+import NewExpense from "../components/Expenses/NewExpense"
+import ListExpense from "../components/Expenses/ListExpense"
+import FavExpense from "../components/Expenses/FavExpense"
 
 const Expenses = () => {
     return (
-        <div className="w-screen h-screen flex flex-row justify-center items-center bg-neutral-beige gap-4 ">
+        <div className="w-screen h-screen flex flex-row justify-center items-center gap-4 ">
             <Navbar />
-            <div className="w-3/4 h-full flex flex-col justify-around items-center">
+            <div className="w-3/4 h-full flex flex-col justify-evenly items-center ">
                 <MonthSelector /> 
-                <h1>Expenses</h1>
-                <h1 className="text-4xl font-bold">Welcome to Tumi</h1>
-                <p className="text-lg">Your personal finance tracker</p>
+                <div className="flex flex-row justify-evenly items-center w-full h-100 min-h-[70%] bg-light-pastel-pink p-8 rounded-3xl">
+                    <div className="Left">
+                        <NewExpense />
+                        <FavExpense />
+                    </div>
+                    <ListExpense />
+                </div>
             </div>
         </div>
     )
