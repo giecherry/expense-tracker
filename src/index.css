@@ -13,3 +13,9 @@
   background-color: #F9F5F4;
   font-family: 'Chivo Mono', monospace;
 }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
