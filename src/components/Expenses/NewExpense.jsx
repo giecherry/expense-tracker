@@ -1,10 +1,8 @@
 import { useContext, useState } from "react";
 import { DataContext } from "../../context/DataContext";
-import { useNavigate } from "react-router-dom";
+import SelectDropdown from "../SelectDropdown.jsx";
 
 const NewExpense = () => {
-
-    const navigate = useNavigate();
 
     const {expenses, addExpense} = useContext(DataContext)
 
@@ -22,6 +20,7 @@ const NewExpense = () => {
         const newExpense = {
             id: expenses.length + 1,
             owner: JSON.parse(sessionStorage.getItem("Inloggad user:")).userName,
+            amount: expenseAmount,
             description: expenseDescription,
             category: expenseCategory,
             creationDate:new Date(expenseCreationDate),
@@ -31,20 +30,13 @@ const NewExpense = () => {
         alert("Expense added successfully!");
     };
 
+
+
     return (
-        <div className="container flex flex-col justify-around bg-neutral-beige rounded-3xl p-8 h-[50%] gap-2">
-                <input className="rounded-3xl p-2 px-16 w-[80%] " type="text" placeholder="Description" onChange={(e)=> setExpenseDescription(e.target.value)}/> 
-                <input className="rounded-3xl p-2 px-16 w-[80%] " placeholder="Amount" type="number" onChange={(e) => setExpenseAmount(e.target.value) } />
-                <div>
-                    <select className="rounded-3xl p-2 px-16 w-[80%] border-transparent appearance-none border focus:outline-none" value={expenseCategory}onChange={(e) => setExpenseCategory(e.target.value)}>
-                        <option value="" disabled>Select a category</option>
-                        <option value="Housing">Housing</option>
-                        <option value="Transportation">Transportation</option>
-                        <option value="Groceries">Groceries</option>
-                        <option value="Lifestyle">Lifestyle</option>
-                        <option value="Others">Others</option>
-                    </select>
-                </div>
+        <div className="container flex flex-col justify-around bg-neutral-beige rounded-3xl p-8 h-auto gap-2">
+            <input className="rounded-3xl p-3 w-[90%] border-transparent focus:border-gray-400 bg-white focus:outline-none shadow-sm" type="text" placeholder="Description" onChange={(e)=> setExpenseDescription(e.target.value)}/> 
+            <input className="rounded-3xl p-3 w-[90%] border-transparent focus:border-gray-400 bg-white focus:outline-none shadow-sm" placeholder="Amount" type="number" onChange={(e) => setExpenseAmount(e.target.value) } />
+            <SelectDropdown onChange={(e) => setExpenseCategory(e.target.value)} />
             <button className="rounded-3xl p-2 px-4 m-2 w-1/4 bg-muted-rose hover:bg-deep-rose shadow-soft-pink" onClick={handleAddExpense}>Add</button>
         </div>
     );
